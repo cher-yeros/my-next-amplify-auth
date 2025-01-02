@@ -1,136 +1,137 @@
 "use client";
 
-import { signIn } from "aws-amplify/auth";
-import React from "react";
+import { LOGIN_USER } from "@/graphql/auth/auth";
+import { loginFinished } from "@/redux/slices/authSlice";
+import { useAppDispatch } from "@/redux/store";
+import { login_user_validator } from "@/utils/validator/auth";
+import { useMutation } from "@apollo/client";
+import { Typography } from "@mui/material";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 
-const AuthPage = () => {
-  const signInUser = async () => {
-    console.log("object");
+export default function Login() {
+  const dispatch = useAppDispatch();
+  const router = useRouter();
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const [loginAdmin, { loading, error }] = useMutation(LOGIN_USER);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm({
+    mode: "all",
+    resolver: login_user_validator,
+  });
+
+  const onSubmit = async (values: any) => {
     try {
-      const result = await signIn({
-        username: "0945933607",
-        password: "hunter2",
-      });
+      const { data } = await loginAdmin({ variables: { input: values } });
 
-      console.log(result);
+      if (data?.loginUser?.user?.role === "Student") {
+        if (data?.loginUser?.user?.is_corporate_user) {
+          const prod = `https://corporate.lelahub.org?user_id=${data?.loginUser?.user?.id}&corporate_id=${data?.loginUser?.user?.corporate_id}`;
+          // const prod = `https://master.d1ls91w5xf0dcs.amplifyapp.com?user_id=${data?.loginUser?.user?.id}&corporate_id=${data?.loginUser?.user?.corporate_id}`;
+          const dev = `http://localhost:3002?user_id=${data?.loginUser?.user?.id}&corporate_id=${data?.loginUser?.user?.corporate_id}`;
+
+          window.open(
+            process.env.NODE_ENV === "production" ? prod : dev,
+            "_newtab"
+          );
+        } else {
+          dispatch(loginFinished(data.loginUser));
+          console.log(data);
+          router.push("/my-courses");
+        }
+
+        reset();
+      }
+
+      reset();
     } catch (error) {
       console.log(error);
+      // toast.error(error.message, {
+      //   autoClose: 500,
+      // });
     }
   };
+
   return (
-    <div className="bg-gray-100 flex items-center justify-center min-h-screen">
-      <div className="bg-white shadow-lg rounded-lg flex w-full max-w-4xl">
-        {/* Login Section */}
-        <div className="w-1/2 p-8 flex flex-col justify-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6">Login</h2>
-          <form>
-            <div className="mb-4">
-              <label
-                htmlFor="login-email"
-                className="block text-sm font-medium text-gray-600"
-              >
-                Phone
-              </label>
+    <section
+      className="container forms d-flex justify-content-center"
+      style={{ background: "none" }}
+    >
+      <div className="form login">
+        <div className="form-content">
+          <header>Login</header>
+          <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+            <div className="field input-field">
+              {/* <Controller control={control}/> */}
               <input
-                id="login-email"
+                {...register("phone")}
                 type="tel"
-                placeholder="Enter your email"
-                className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-200"
+                placeholder="Phone"
+                className="input"
               />
             </div>
-            <div className="mb-4">
-              <label
-                htmlFor="login-password"
-                className="block text-sm font-medium text-gray-600"
-              >
-                Password
-              </label>
+            <div className="field input-field">
               <input
-                id="login-password"
+                {...register("password")}
                 type="password"
-                placeholder="Enter your password"
-                className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-200"
+                placeholder="Password"
+                className="password"
               />
+              <i className="bx bx-hide eye-icon"></i>
             </div>
-            <div className="flex items-center justify-between mb-4">
-              <label className="flex items-center">
-                <input
-                  type="checkbox"
-                  className="mr-2 text-blue-600 border-gray-300 focus:ring focus:ring-blue-200"
-                />
-                <span className="text-sm text-gray-600">Remember me</span>
-              </label>
-              <a href="#" className="text-sm text-blue-600 hover:underline">
+            <div className="form-link">
+              <a href="#" className="forgot-pass">
                 Forgot password?
               </a>
             </div>
-            <button
-              type="button"
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
-              onClick={() => signInUser()}
-            >
-              Login
-            </button>
-          </form>
-        </div>
+            <div className="field button-field">
+              <button type={loading ? "button" : "submit"}>
+                {loading ? "Loading..." : "Login"}
+              </button>
+            </div>
 
-        {/* Sign Up Section */}
-        <div className="w-1/2 p-8 bg-blue-50 flex flex-col justify-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6">Sign Up</h2>
-          <form>
-            <div className="mb-4">
-              <label
-                htmlFor="signup-name"
-                className="block text-sm font-medium text-gray-600"
+            {error?.message && (
+              <Typography
+                color="error"
+                sx={{ mt: 2, textAlign: "center", color: "error" }}
               >
-                Name
-              </label>
-              <input
-                id="signup-name"
-                type="text"
-                placeholder="Enter your name"
-                className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-200"
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="signup-email"
-                className="block text-sm font-medium text-gray-600"
-              >
-                Email
-              </label>
-              <input
-                id="signup-email"
-                type="email"
-                placeholder="Enter your email"
-                className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-200"
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="signup-password"
-                className="block text-sm font-medium text-gray-600"
-              >
-                Password
-              </label>
-              <input
-                id="signup-password"
-                type="password"
-                placeholder="Create a password"
-                className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-200"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
-            >
-              Sign Up
-            </button>
+                {error?.message}!
+              </Typography>
+            )}
           </form>
+          <div className="form-link">
+            <span>
+              Do not have an account?{" "}
+              <Link href="sign-up" className="link signup-link">
+                Signup
+              </Link>
+            </span>
+          </div>
+        </div>
+        <div className="line"></div>
+
+        <div className="media-options">
+          <a href="#" className="field google">
+            <img
+              src="https://static.cdnlogo.com/logos/g/38/google-icon.svg"
+              alt=""
+              className="google-img"
+            />
+            <span>Login with Google</span>
+          </a>
         </div>
       </div>
-    </div>
+      {/* <!-- Signup Form --> */}
+    </section>
   );
-};
-
-export default AuthPage;
+}

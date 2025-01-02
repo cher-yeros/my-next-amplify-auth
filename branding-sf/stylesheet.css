@@ -1,0 +1,168 @@
+@font-face {
+    font-family: 'Branding SF';
+    src: url('BrandingSF-Bold.eot');
+    src: local('Branding SF Bold'), local('BrandingSF-Bold'),
+        url('BrandingSF-Bold.eot?#iefix') format('embedded-opentype'),
+        url('BrandingSF-Bold.woff2') format('woff2'),
+        url('BrandingSF-Bold.woff') format('woff'),
+        url('BrandingSF-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Branding SF';
+    src: url('BrandingSF-Medium.eot');
+    src: local('Branding SF Medium'), local('BrandingSF-Medium'),
+        url('BrandingSF-Medium.eot?#iefix') format('embedded-opentype'),
+        url('BrandingSF-Medium.woff2') format('woff2'),
+        url('BrandingSF-Medium.woff') format('woff'),
+        url('BrandingSF-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Branding SF Black It';
+    src: url('BrandingSF-BlackIt.eot');
+    src: local('Branding SF Black It'), local('BrandingSF-BlackIt'),
+        url('BrandingSF-BlackIt.eot?#iefix') format('embedded-opentype'),
+        url('BrandingSF-BlackIt.woff2') format('woff2'),
+        url('BrandingSF-BlackIt.woff') format('woff'),
+        url('BrandingSF-BlackIt.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Branding SF';
+    src: url('BrandingSF-SemiBold.eot');
+    src: local('Branding SF SemiBold'), local('BrandingSF-SemiBold'),
+        url('BrandingSF-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('BrandingSF-SemiBold.woff2') format('woff2'),
+        url('BrandingSF-SemiBold.woff') format('woff'),
+        url('BrandingSF-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Branding SF SemiBold It';
+    src: url('BrandingSF-SemiBoldIt.eot');
+    src: local('Branding SF SemiBold It'), local('BrandingSF-SemiBoldIt'),
+        url('BrandingSF-SemiBoldIt.eot?#iefix') format('embedded-opentype'),
+        url('BrandingSF-SemiBoldIt.woff2') format('woff2'),
+        url('BrandingSF-SemiBoldIt.woff') format('woff'),
+        url('BrandingSF-SemiBoldIt.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Branding SF Light It';
+    src: url('BrandingSF-LightIt.eot');
+    src: local('Branding SF Light It'), local('BrandingSF-LightIt'),
+        url('BrandingSF-LightIt.eot?#iefix') format('embedded-opentype'),
+        url('BrandingSF-LightIt.woff2') format('woff2'),
+        url('BrandingSF-LightIt.woff') format('woff'),
+        url('BrandingSF-LightIt.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Branding SF';
+    src: url('BrandingSF-Thin.eot');
+    src: local('Branding SF Thin'), local('BrandingSF-Thin'),
+        url('BrandingSF-Thin.eot?#iefix') format('embedded-opentype'),
+        url('BrandingSF-Thin.woff2') format('woff2'),
+        url('BrandingSF-Thin.woff') format('woff'),
+        url('BrandingSF-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Branding SF Thin It';
+    src: url('BrandingSF-ThinIt.eot');
+    src: local('Branding SF Thin It'), local('BrandingSF-ThinIt'),
+        url('BrandingSF-ThinIt.eot?#iefix') format('embedded-opentype'),
+        url('BrandingSF-ThinIt.woff2') format('woff2'),
+        url('BrandingSF-ThinIt.woff') format('woff'),
+        url('BrandingSF-ThinIt.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Branding SF';
+    src: url('BrandingSF-Black.eot');
+    src: local('Branding SF Black'), local('BrandingSF-Black'),
+        url('BrandingSF-Black.eot?#iefix') format('embedded-opentype'),
+        url('BrandingSF-Black.woff2') format('woff2'),
+        url('BrandingSF-Black.woff') format('woff'),
+        url('BrandingSF-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Branding SF SemiLight It';
+    src: url('BrandingSF-SemiLightIt.eot');
+    src: local('Branding SF SemiLight It'), local('BrandingSF-SemiLightIt'),
+        url('BrandingSF-SemiLightIt.eot?#iefix') format('embedded-opentype'),
+        url('BrandingSF-SemiLightIt.woff2') format('woff2'),
+        url('BrandingSF-SemiLightIt.woff') format('woff'),
+        url('BrandingSF-SemiLightIt.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Branding SF SemiLight';
+    src: url('BrandingSF-SemiLight.eot');
+    src: local('Branding SF SemiLight'), local('BrandingSF-SemiLight'),
+        url('BrandingSF-SemiLight.eot?#iefix') format('embedded-opentype'),
+        url('BrandingSF-SemiLight.woff2') format('woff2'),
+        url('BrandingSF-SemiLight.woff') format('woff'),
+        url('BrandingSF-SemiLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Branding SF Bold It';
+    src: url('BrandingSF-BoldIt.eot');
+    src: local('Branding SF Bold It'), local('BrandingSF-BoldIt'),
+        url('BrandingSF-BoldIt.eot?#iefix') format('embedded-opentype'),
+        url('BrandingSF-BoldIt.woff2') format('woff2'),
+        url('BrandingSF-BoldIt.woff') format('woff'),
+        url('BrandingSF-BoldIt.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Branding SF';
+    src: url('BrandingSF-Light.eot');
+    src: local('Branding SF Light'), local('BrandingSF-Light'),
+        url('BrandingSF-Light.eot?#iefix') format('embedded-opentype'),
+        url('BrandingSF-Light.woff2') format('woff2'),
+        url('BrandingSF-Light.woff') format('woff'),
+        url('BrandingSF-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Branding SF Medium It';
+    src: url('BrandingSF-MediumIt.eot');
+    src: local('Branding SF Medium It'), local('BrandingSF-MediumIt'),
+        url('BrandingSF-MediumIt.eot?#iefix') format('embedded-opentype'),
+        url('BrandingSF-MediumIt.woff2') format('woff2'),
+        url('BrandingSF-MediumIt.woff') format('woff'),
+        url('BrandingSF-MediumIt.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+

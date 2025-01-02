@@ -1,0 +1,116 @@
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  width: 100%;
+  min-height: 70vh;
+  position: relative;
+  padding: 70px 0 60px 0;
+  display: flex;
+  align-items: center;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+.hero p {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.hero ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hero ul li {
+  /* display: flex; */
+  align-items: center;
+  padding-bottom: 6px;
+}
+
+.hero ul i {
+  color: var(--accent-color);
+  font-size: 18px;
+  margin-right: 6px;
+}
+
+.hero .btn-get-started {
+  margin-top: 2rem;
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  /* font-family: var(--heading-font); */
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 28px 12px 28px;
+  border-radius: 50px;
+  transition: 0.5s;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+}
+
+.hero .btn-get-started:hover {
+  color: var(--contrast-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 40px !important;
+    line-height: 36px !important;
+    text-align: center;
+  }
+
+  .hero .container {
+    position: relative;
+    bottom: -15rem;
+  }
+
+  .hero p {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .hero .btn-get-started,
+  .hero .btn-watch-video {
+    font-size: 15px !important;
+    padding: 10px 28px 12px 28px;
+    margin-top: 0px !important;
+  }
+
+  .hero .btn-wrapper {
+    align-items: center;
+    justify-content: center;
+  }
+}
+/* @media (max-width: 640px) {
+  .hero .container {
+  }
+
+  .hero h1 {
+    font-size: 28px !important;
+    line-height: 36px !important;
+  }
+
+  .hero p {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+
+  .hero .btn-get-started,
+  .hero .btn-watch-video {
+    font-size: 13px;
+
+  }
+} */
